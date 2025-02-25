@@ -1,21 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Role Assignment</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script defer src="app.js.js"></script>
 </head>
 <body>
-
-   
     <nav class="navbar">
         <div class="nav-left">
             <a href="javascript:void(0);" class="nav-icon" onclick="toggleNav()">
                
             </a>
-            <img src="/AuthPages/resources/Logo.png" alt="DLT Logo" class="nav-logo">
+            <img src="/Instructor_pages/resources/Logo.png" alt="DLT Logo" class="nav-logo">
         </div>
         
         <div class="nav-right">
@@ -23,10 +22,68 @@
             <a href="#" class="nav-icon"><i class="fas fa-bell"></i></a>
             <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
         </div>
-    </nav>   
-    <div id="main">
-        <h2>Welcome to the Platform</h2>
-    </div>
+    </nav>
+    
+    <div class="container">
+        <div class="role-assign">
+            <h3>ROLE ASSIGN</h3>
+            <label>USERNAME:</label>
+            <input type="text" placeholder="--search a user--">
+            <div class="user-list">
+                <div class="user">SHIV ARORA</div>
+                <div class="user">ANKIT SAXENA</div>
+                <div class="user">ANANYA SHARMA</div>
+            </div>
+            
+            <label>ROLE ASSIGN:</label>
+            <select>
+                <option>--select a role--</option>
+                <option>DEVELOPER</option>
+                <option>MANAGER</option>
+                <option>HR</option>
+            </select>
+            
+            <div class="modules">
+                <label>MODULES ASSIGN:</label>
+                <div class="module">
+                    LEAVE MANAGEMENT <button>-</button>
+                    <input type="checkbox"> Read
+                    <input type="checkbox"> Update
+                    <input type="checkbox"> Delete
+                    <input type="checkbox"> Approve
+                </div>
+                <button class="add-module">+</button>
+            </div>
+            
+            <div class="buttons">
+                <button class="cancel">Cancel</button>
+                <button class="save">Save</button>
+            </div>
+        </div>
 
+        <div class="user-details">
+            <h3>USER DETAILS</h3>
+            <img src="profile.png" alt="User Profile" class="profile-pic">
+            <label>USERNAME</label>
+            <input type="text" value="ANANYA SHARMA">
+            <label>EMPLOYEE ID</label>
+            <input type="text" value="DLT57686">
+            <label>JOINING DATE</label>
+            <input type="text" value="15 FEB, 2025">
+            <label>ROLE</label>
+            <input type="text" value="INTERN SOFTWARE DEVELOPER">
+            <label>REPORTING TO</label>
+            <input type="text" value="ANKIT SAXENA">
+            <label>LEAVES TAKEN</label>
+            <input type="text" value="5">
+            <button class="delete-user">DELETE USER</button>
+        </div>
+    </div>
+    <script>
+        function toggleNav() {
+            document.querySelector('.sidebar').classList.toggle('show');
+        }
+        
+    </script>
 </body>
 </html>

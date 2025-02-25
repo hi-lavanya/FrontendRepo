@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="#" class="nav-icon" onclick="toggleNav()">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+            <img src="/Instructor_pages/resources/Logo.png" alt="DLT Logo" class="nav-logo">
+        </div>
+        <div class="nav-right">
+            <a href="#" class="nav-icon"><i class="fa-solid fa-house"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-bell"></i></a>
+            <a href="#" class="nav-icon"><i class="fas fa-user"></i></a>
+        </div>
+    </nav>
+    
+    <aside class="sidebar">
+        <ul>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#instructors">Instructor Requests</a></li>
+            <li><a href="#courses">Manage Courses</a></li>
+            <li><a href="#users">Manage Users</a></li>
+            <li><a href="#settings">Settings</a></li>
+        </ul>
+    </aside>
+    
+    <main class="content">
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div class="stats">
+                <div class="card">Pending Requests: <span id="pendingCount">0</span></div>
+                <div class="card">Total Courses: <span id="courseCount">0</span></div>
+                <div class="card">Total Users: <span id="userCount">0</span></div>
+            </div>
+        </section>
+        
+        <section id="instructors">
+            <h2>Instructor Requests</h2>
+            <div id="instructorList"></div>
+        </section>
+        
+        <section id="courses">
+            <h2>Manage Courses</h2>
+            <div id="courseList"></div>
+        </section>
+        
+        <section id="users">
+            <h2>Manage Users</h2>
+            <div id="userList"></div>
+        </section>
+    </main>
+</body>
+</html>
