@@ -11,7 +11,7 @@ body {
 
 .navbar {
     background: #4fb4ed;
-    padding: 15px 30px;
+    padding: 0px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
