@@ -1,7 +1,13 @@
+<<<<<<< Updated upstream
 /* <!------------------------------Navbar-----------------------------> */* {
+=======
+/* <!------------------------------Navbar-----------------------------> */
+* {
+>>>>>>> Stashed changes
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* border: 1px solid black; */
 }
 
 body {
@@ -68,16 +74,13 @@ body {
     font-weight: bold;
     text-decoration: none;
     text-shadow: 1px 1px 2px rgb(107, 107, 107);
+    padding-left: 20px;
 }
 
-.nav-links p:first-child:hover {
+#my-courses:hover {
     color: #585858;
     text-shadow: 1px 1px 2px rgb(255, 255, 255);
     cursor: pointer;
-}
-
-.nav-links li:first-child {
-    padding-left: 20px;
 }
 
 .nav-links img {
@@ -162,11 +165,12 @@ body {
 
     .nav-links.active {
         display: flex;
-        background-color: #3aaef1;
+        background-color: #4fb4ed;
         margin-top: 30px;
         margin-right: 10px;
         border: 1px solid black;
         box-shadow: 2px 2px 5px rgb(44, 44, 44);
+        z-index: 5;
     }
 
     .searchbox input {
@@ -185,4 +189,8 @@ body {
         margin-top: -70px;
     }
 }
+<<<<<<< Updated upstream
 /* <!------------------------------Navbar-----------------------------> */
+=======
+/* <!------------------------------Navbar-----------------------------> */
+>>>>>>> Stashed changes

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Content</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ----------------------------Navbar--------------------------- -->
+    <header>
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="logo">
+            <a href="#"><img src="components/Logo.png" alt="Logo" /></a>
+          </div>
+          <div class="searchbox">
+            <input type="text" name="search" placeholder="Search Courses" />
+          </div>
+          <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <ul class="nav-links">
+            <li><p id="my-courses">My Courses</p></li>
+            <li><p>Hi User!</p></li>
+            <li><img src="components/profile.png" alt="Profile" /></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <script>
+      function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("active");
+      }
+    </script>
+    <!------------------------------Navbar ends----------------------------->
+
+    <!-- ----------------------------Main Content-----left section--------------------------- -->
+    <main>
+      <section class="left-bar">
+        <div class="tip-container">
+          <div class="tip-head">
+            <p>"Pro Tips for a Standout Course!"</p>
+            <br />
+            <div class="tips">
+              <ul class="tip-list">
+                <li>🚀 Make Youtr Course Shine!</li>
+                <li>✅ Catchy Title: Keep it short, clear, and intriguing.</li>
+                <li>
+                  ✅ Engaging Description: Highlight key takeaways and benefits.
+                </li>
+                <li>
+                  ✅ Eye-Catching Thumbnails: Use high-quality images with
+                  minimal text.
+                </li>
+                <li>
+                  💡 A great first impression boosts enrollment -- make it
+                  count!
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p class="create-course">Create Course</p>
+        <div class="buttons">
+          <button class="description-btn" id="description-btn">Description</button>
+          <button class="curriculum-btn">Curriculum</button>
+          <button class="quiz-btn">Quiz</button>
+          <button class="publish-btn">Publish</button>
+        </div>
+      </section>
+
+      <!-- ----------------------------Main Content-----left section ends----------------------------->
+
+      <!-- ----------------------------Main Content-----right section------------------------------>
+
+      <section class="right-main">
+        <div class="right-container">
+          <div class="upper-content">
+            <div class="main-heading">
+              <h1>Step 1: Description - Hook Your Learners!</h1>
+            </div>
+            <div class="heading-description">
+              <p>
+                "A great course starts with a great first impression! Craft a
+                compelling title, choose the perfect category, and upload an
+                eye-catching thumbnail to grab your learner's attention
+                instantly.
+              </p>
+            </div>
+          </div>
+          <div class="form-n-img">
+            <div class="input-box">
+              <form action="#" class="inputs">
+  
+                <div class="title">
+                  <label for="title">Title:</label>
+                  <input type="text" id="title" name="title" placeholder="'enter a catchy and compelling course title...'" required/>
+                </div>
+        
+                <br>
+                <div class="category">
+                  <label for="category">Category:</label>
+                  <select id="category" name="category" required>
+                    <option value="">'select a category that stands out'</option>
+                    <option value="1">GenAI</option>
+                    <option value="2">Data Science</option>
+                    <option value="3">Cloud</option>
+                  </select>
+                </div>             
+                
+                <br>
+  
+                <div class="description">
+                  <label for="description">Description:</label>
+                  <textarea id="description" name="description" placeholder="'Provide a clear and engaging course description to attract learners...'" required></textarea>
+              </div>
+              
+  
+                <br>
+  
+                <div class="thumbnail">
+                  <label for="thumbnail">Thumbnail:</label>
+                  <input type="file" id="thumbnail" name="thumbnail" required/>
+                </div>
+              
+              </form>
+
+              <br>
+
+              <div class="save-n-next">
+                <button class="save-btn">Save & Next</button>
+              </div>
+            </div>
+            <div class="hand-holding-img"><img src="components/right-main-bg.png">
+            </div>
+          </div>
+          
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
