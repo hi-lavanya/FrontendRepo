@@ -403,30 +403,38 @@ main {
 .module {
   background-color: #f4f4f4;
   width: 120%;
-  height: auto; /* Adjusted for responsiveness */
+  height: auto;
   border-radius: 10px;
   border: 1px solid black;
   padding: 15px;
   margin-left: auto;
-  margin-bottom: 15px;
+  margin-bottom: 20px; /* Increased margin for module spacing */
+}
+
+.module-label,
+.sub-module-label {
+  font-size: 26px;
+  font-family: "Comfortaa", sans-serif;
+  margin-right: 5px;
 }
 
 .sub-module-header,
 .module-header {
   display: flex;
   font-size: 26px;
-  flex-wrap: wrap;
-  margin-left: auto;/* Added gap for better spacing */
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 15px; /* Added margin below header */
 }
 
-.module-title,
-.sub-module-title {
-  width: 50%;
+.title-input {
+  width: 30%;
   padding: 8px;
-  font-size: 24px;
+  font-size: 18px;
   border: 1px solid black;
   border-radius: 8px;
   font-family: "Comfortaa", sans-serif;
+  margin-right: 10px;
 }
 
 button {
@@ -446,6 +454,7 @@ button {
   cursor: pointer;
   font-size: 18px;
   margin-top: 10px;
+  margin-right: 5px;
 }
 
 .edit:hover,
@@ -453,13 +462,23 @@ button {
   color: #333;
 }
 
-.sub-module {
+.input.title-input {
+  width: 80%;
+  padding: 8px;
+  font-size: 10px;
+  border: 1px solid black;
+  border-radius: 8px;
+  gap: 25px;
+  font-family: "Comfortaa", sans-serif;
+}
+
+.sub-module{
   background-color: #f4f4f4;
   border: 1px solid black;
-  height: auto; /* Adjusted for responsiveness */
+  height: auto;
   border-radius: 8px;
   padding: 10px;
-  
+  margin-bottom: 15px; /* Increased margin for submodule spacing */
   margin-top: 10px;
 }
 
@@ -469,6 +488,7 @@ button {
   margin-left: auto;
   align-items: center;
 }
+
 .add-sub-module {
   border: 1px solid black;
   border-radius: 10px;
@@ -478,7 +498,6 @@ button {
   background-color: #4fb4ed;
   cursor: pointer;
   margin-top: 10px;
-  
 }
 
 .dropdown {
@@ -488,32 +507,38 @@ button {
   margin-top: 10px;
   width: 30px;
   margin-left: auto;
-  
 }
+
 .add-sub-module:hover {
   background-color: #3a9ad9;
 }
 
+.hidden {
+  display: none;
+}
 
 .dropdown:hover {
-  color: #333;
+  background-color: #232222;
 }
 
 .sub-module-content {
-  margin-top: 10px;
+  margin-top: 15px; /* Added margin above content */
   font-size: 26px;
   font-family: "Comfortaa", sans-serif;
+  padding-bottom: 10px; /* Added padding below content */
 }
 
 .sub-module-content1 {
-  margin-top: 10px;
+  margin-top: 10px; /* Added margin above content */
   font-size: 26px;
   font-family: "Comfortaa", sans-serif;
+  padding-bottom: 10px; /* Added padding below content */
 }
 
 .video-link {
   width: 50%;
   padding: 9px;
+  margin-top: 10px;
   font-size: 18px;
   border: 1px solid black;
   border-radius: 8px;
@@ -532,12 +557,12 @@ button {
   height: 100px;
 }
 
-.editor {
-  border: 2px solid black;
+.editor-container {
+  border: 2px solid black !important;
+  height: 120px;
   border-radius: 8px;
   margin-left: auto;
   justify-content: flex-end;
-  
 }
 
 .form-n-img {
@@ -552,7 +577,7 @@ img {
 
 .save-n-next {
   display: flex;
-  margin-top: 40px;
+  margin-top: 20px;
   gap: 10px;
   justify-content: flex-start;
 }
@@ -563,7 +588,7 @@ img {
   border-radius: 15px;
   width: auto;
   height: 50px;
-  margin-top: 70px;
+  margin-top: 35px;
   font-size: 20px;
   font-weight: bolder;
   cursor: pointer;
