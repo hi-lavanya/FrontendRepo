@@ -1,0 +1,211 @@
+
+/* <!----------------Navbar-----------------------------> */
+
+* {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Comfortaa", sans-serif;
+}
+
+body {
+    background-color: #4FB4ED;
+    margin: 20px;
+    overflow-x: hidden;
+    color: #222;
+}
+.navbar {
+    background: #4fb4ed;
+    padding: 15px 80px 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+    margin-right: 20px;
+}
+
+.searchbox {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.searchbox input {
+    width: 100%;
+    max-width: 730px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    box-shadow: 2px 2px 5px rgb(44, 44, 44);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 60px;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+}
+
+
+.nav-links p {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px rgb(107, 107, 107);
+}
+
+.nav-links p:hover{
+    color: #757575;
+    text-shadow: 1px 1px 2px rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.nav-links img {
+    width: 57px;
+    height: 55px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    box-shadow: 0px 1px 2px rgb(107, 107, 107);
+}
+
+.nav-links img:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 930px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .searchbox {
+        order: 2;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .searchbox input {
+        width: 100%;
+        max-width: none;
+    }
+
+    .nav-links {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 10px;
+    }
+}
+
+
+/* <!----------------Navbar-----------------------------> */
+
+    
+    /*Hero Section*/
+    .herosection {
+        width: 100%;
+        min-height: 100vh; 
+        background-color: #ffffff;
+        border-radius: 15px;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        padding: 20px;
+        position: relative;
+    }
+    
+  
+    #pageheading {
+        text-align: left;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+    .heroframe1 {
+        display: flex; 
+        flex-wrap: wrap;
+        gap: 20px; 
+        align-items: stretch; 
+        justify-content: flex-start; 
+        width: 100%; 
+    }
+    
+    .heroframe1container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 20px; 
+        width: 90%;
+        margin: 0 auto; 
+    }
+
+
+.container {
+    min-width: 250px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.container img {
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    object-fit: cover;
+}
+
+.description {
+    padding: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.editbutton, .viewquizbutton, .unpublishbutton {
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.viewquizbutton {
+    background-color: #33CC66;
+    color: white;
+}
+
+.unpublishbutton {
+    background-color: #f02626;
+    color: white;
+}
