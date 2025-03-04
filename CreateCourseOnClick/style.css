@@ -241,6 +241,12 @@ li {
     background-color: #C7C7C7;
     cursor: pointer;
     box-shadow: 2px 2px 5px rgb(44, 44, 44);
+    color: #252525;
+}
+
+.curriculum-btn:hover, .quiz-btn:hover, .publish-btn:hover{
+    background-color:#8d8b8b;
+    color: white;
 }
 
 #description-btn::after, .curriculum-btn::after{
@@ -399,7 +405,8 @@ main{
 
 .title, .description, .category, .thumbnail{
     font-size: 26px;
-    display: flex;    
+    display: flex;
+    color: #252525;
 }
 
 .title label, .category label, .description label, .thumbnail label{
@@ -418,6 +425,14 @@ main{
     font-size: 18px;
 }
 
+option{
+    color: #252525;
+}
+
+select#category:valid {
+    color: #252525; 
+}
+
 select#category{
     color:rgb(107, 107, 107);
     background-color: #ffffff;
@@ -431,7 +446,9 @@ select#category{
     resize: vertical;    
 }
 
-
+#description{
+    resize: none;
+}
 
 #title, #description, #category, input#file-upload-button{
     border: none;
@@ -465,22 +482,29 @@ input#thumbnail{
 img{
     height: 600px;
     width: auto;
-    /* border: 1px solid black; */
 }
 
 .save-n-next{
     display: flex;
     margin-top: 125px;
+    float: right;
 }
 
 .save-btn{
     border: 1px solid black;
     border-radius: 15px;
-    width: 25%;
     height: 50px;
     font-size: 20px;
+    padding: 0px 20px 0px 20px;
     font-weight: bolder;
     background-color: #4fb4ed;
+    box-shadow: 2px 2px 5px rgb(44, 44, 44);
+}
+
+.save-btn:hover{
+    cursor: pointer;
+    background-color: #003858;
+    color: white;
 }
 
 @media (max-width: 1300px){
@@ -522,7 +546,7 @@ img{
 
 @media (max-width: 700px){
     .save-btn{
-        width: 40%;
+        /* width: 40%; */
         height: 50px;
         font-size: 20px;
     }
