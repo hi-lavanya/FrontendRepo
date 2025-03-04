@@ -1,9 +1,5 @@
 const URL = "https://<>/instructor/course/createCourse";
-const publishBtn = document.querySelector(".publish-btn");
-const title = document.querySelector("#title").value.trim();
-const category = document.querySelector("#category").value;
-const description = document.querySelector("#description").value.trim();
-const thumbnail = document.querySelector("#thumbnail").files[0];
+let publishBtn = document.querySelector(".publish-btn");
 
 publishBtn.addEventListener("click", () => {
     alert("Please fill mandatory fields first!");
@@ -15,6 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     saveButton.addEventListener("click", async function (event) {
         event.preventDefault();
+
+        const title = document.querySelector("#title").value.trim();
+        const category = document.querySelector("#category").value;
+        const description = document.querySelector("#description").value.trim();
+        const thumbnail = document.querySelector("#thumbnail").files[0];
 
         console.log("Collected Data:");
         console.log("Title:", title);
@@ -40,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let key in courseData) {
             formData.append(key, courseData[key]);
         }
-        formData.append("thumbnail", thumbnail);
+        formData.append("thumbnail", thumbnail); 
 
         console.log("FormData Entries:");
         for (let pair of formData.entries()) {
