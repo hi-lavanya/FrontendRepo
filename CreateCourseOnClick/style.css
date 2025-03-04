@@ -295,7 +295,7 @@ li {
         margin-top: auto;
     }
 
-    .save-btn{
+    .desc-save-btn{
         margin-top: -125px;
     }
 
@@ -456,6 +456,7 @@ select#category{
     border: 1px solid black;
     font-family: "Comfortaa", serif;
     border-radius: 10px;
+
 }
 
 input#thumbnail{
@@ -490,7 +491,7 @@ img{
     float: right;
 }
 
-.save-btn{
+.desc-save-btn{
     border: 1px solid black;
     border-radius: 15px;
     height: 50px;
@@ -501,7 +502,7 @@ img{
     box-shadow: 2px 2px 5px rgb(44, 44, 44);
 }
 
-.save-btn:hover{
+.desc-save-btn:hover{
     cursor: pointer;
     background-color: #003858;
     color: white;
@@ -545,7 +546,7 @@ img{
 }
 
 @media (max-width: 700px){
-    .save-btn{
+    .desc-save-btn{
         /* width: 40%; */
         height: 50px;
         font-size: 20px;

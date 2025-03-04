@@ -1,21 +1,20 @@
 const URL = "https://<>/instructor/course/createCourse";
-let publishBtn = document.querySelector(".publish-btn")
+const publishBtn = document.querySelector(".publish-btn");
+const title = document.querySelector("#title").value.trim();
+const category = document.querySelector("#category").value;
+const description = document.querySelector("#description").value.trim();
+const thumbnail = document.querySelector("#thumbnail").files[0];
 
-publishBtn.addEventListener("click", () =>{
+publishBtn.addEventListener("click", () => {
     alert("Please fill mandatory fields first!");
-})
+});
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector(".inputs");
-    const saveButton = document.querySelector(".save-btn");
+    const saveButton = document.querySelector(".desc-save-btn");
 
     saveButton.addEventListener("click", async function (event) {
         event.preventDefault();
-
-        const title = document.querySelector("#title").value.trim();
-        const category = document.querySelector("#category").value;
-        const description = document.querySelector("#description").value.trim();
-        const thumbnail = document.querySelector("#thumbnail").files[0]; 
 
         console.log("Collected Data:");
         console.log("Title:", title);
@@ -28,12 +27,32 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+        const courseData = {
+            title: title,
+            category: category,
+            description: description,
+            thumbnail: thumbnail.name,
+        };
+
+        console.log("Stored Object:", courseData);
+
         const formData = new FormData();
-        formData.append("title", title);
-        formData.append("category", category);
-        formData.append("description", description);
+        for (let key in courseData) {
+            formData.append(key, courseData[key]);
+        }
         formData.append("thumbnail", thumbnail);
 
+        console.log("FormData Entries:");
+        for (let pair of formData.entries()) {
+            console.log(pair[0], ":", pair[1]);
+        }
+
+        localStorage.setItem("courseData", JSON.stringify(courseData));
+
+        alert("Course data stored successfully and appended to FormData!");
+
+        // OPTIONAL: Send to API (if needed)
+        /*
         try {
             let response = await fetch(URL, {
                 method: "POST",
@@ -47,11 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
             let data = await response.json();
             console.log("Success:", data);
             alert("Course submitted successfully!");
-
-            form.reset();
         } catch (error) {
             console.error("Error:", error);
             alert("Error submitting course.");
         }
+        */
     });
 });
