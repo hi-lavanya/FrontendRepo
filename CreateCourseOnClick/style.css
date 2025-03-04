@@ -262,6 +262,10 @@ li {
     background-color: #4fb4ed;
 }
 
+#description-btn:hover {
+    background-color: #48a5db;
+}
+
 .right-arrow {
     width: 0;
     height: 0;
