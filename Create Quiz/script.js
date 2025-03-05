@@ -1,3 +1,7 @@
+function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("active");
+  }
+
 //for expanding question input box
 document.addEventListener("DOMContentLoaded", function () {
     const textarea = document.getElementById("question-input");
@@ -8,14 +12,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-//fetching and posting data to backend
-
+// //fetching and posting data to backend 
 document.addEventListener("DOMContentLoaded", function () {
-    const questionsContainer = document.querySelector(".right-container"); 
+    const questionsContainer = document.querySelector(".right-container");
     let questionCount = document.querySelectorAll(".outer-qestion-box").length;
+    const saveButton = document.querySelector(".save-btn");
+
+    function getCourseId() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get("course_id") || 1; 
+    }
 
     function addQuestionHandler(event) {
-        event.preventDefault(); 
+        event.preventDefault();
         questionCount++;
 
         const currentQuestionBox = event.target.closest(".outer-qestion-box");
@@ -23,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("No question box found!");
             return;
         }
+
         const newQuestionBox = currentQuestionBox.cloneNode(true);
         newQuestionBox.querySelector("label[for='question-input']").textContent = `Question ${questionCount}:`;
         newQuestionBox.querySelector("[name='question-input']").value = "";
@@ -39,8 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 100);
 
         newQuestionBox.querySelector("[name='question-input']").focus();
-
-        updateQuestionNumbers(); 
+        updateQuestionNumbers();
     }
 
     function deleteQuestionHandler(event) {
@@ -59,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             setTimeout(() => {
                 questionBox.remove();
-                updateQuestionNumbers(); 
+                updateQuestionNumbers();
             }, 300);
         }
     }
@@ -79,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let questionText = questionBox.querySelector("[name='question-input']").value.trim();
             let options = [...questionBox.querySelectorAll("textarea[name='option-input']")].map(option => option.value.trim());
             let correctAnswers = [];
+
             if (questionText === "") {
                 alert(`Please enter the question for Question ${index + 1}`);
                 isValid = false;
@@ -93,10 +103,9 @@ document.addEventListener("DOMContentLoaded", function () {
             let inputs = questionBox.querySelectorAll("input[type='radio']:checked, input[type='checkbox']:checked");
             inputs.forEach(input => {
                 let answerIndex = [...questionBox.querySelectorAll("input[type='radio'], input[type='checkbox']")].indexOf(input);
-                correctAnswers.push(options[answerIndex]); 
+                correctAnswers.push(options[answerIndex]);
             });
 
-            
             if (correctAnswers.length === 0) {
                 alert(`Please select at least one correct answer for Question ${index + 1}`);
                 isValid = false;
@@ -110,26 +119,117 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        if (!isValid) {
-            return null;
-        }
-
-        return quizData;
+        return isValid ? quizData : null;
     }
+
+    saveButton.addEventListener("click", function (event) {
+        event.preventDefault();
+    
+        const courseId = getCourseId(); 
+        const quizTitle = document.querySelector("#title").value.trim();
+        const quizDuration = parseInt(document.querySelector("#duration").value, 10);
+        const questionBoxes = document.querySelectorAll(".outer-qestion-box");
+    
+        if (!quizTitle || isNaN(quizDuration) || quizDuration <= 0) {
+            alert("Please enter a valid quiz title and duration.");
+            return;
+        }
+    
+        const questions = [];
+    
+        questionBoxes.forEach((box, index) => {
+            const questionTitle = box.querySelector("#question-input").value.trim();
+            if (!questionTitle) {
+                alert(`Please enter a valid question for Question ${index + 1}.`);
+                return;
+            }
+    
+            const options = [];
+            const correctAnswers = [];
+            const optionInputs = box.querySelectorAll("textarea[name='option-input']");
+            const selectedOptions = box.querySelectorAll("input:checked");
+    
+            optionInputs.forEach(option => {
+                const value = option.value.trim();
+                if (value) options.push(value);
+            });
+    
+            selectedOptions.forEach(selected => {
+                const optionText = selected.nextElementSibling.value.trim();
+                if (optionText) correctAnswers.push(optionText);
+            });
+    
+            if (options.length < 4) {
+                alert(`Each question must have four options (Question ${index + 1}).`);
+                return;
+            }
+    
+            if (correctAnswers.length === 0) {
+                alert(`Please select at least one correct answer for Question ${index + 1}.`);
+                return;
+            }
+    
+            questions.push({
+                question_title: questionTitle,
+                options: options,
+                correct_ans: correctAnswers
+            });
+        });
+    
+        if (questions.length !== questionBoxes.length) {
+            return;
+        }
+    
+        const quizData = {
+            course_id: courseId,
+            quiz_title: quizTitle,
+            quiz_duration: quizDuration,
+            questions: questions
+        };
+    
+        console.log("Sending Quiz Data:", quizData);
+        saveButton.textContent = "Saving...";
+        saveButton.disabled = true;
+        saveButton.style.backgroundColor = "#003858"; 
+    
+        fetch("https://192.168.1.14:5000/instructor/quiz/createQuiz", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(quizData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Success:", data);
+            alert("Quiz saved successfully!");
+            setTimeout(() => {
+                saveButton.textContent = "Save Quiz";
+                saveButton.disabled = false;
+                saveButton.style.backgroundColor = "#4fb4ed"; 
+                requestAnimationFrame(() => {
+                    saveButton.classList.add("button-reset-animation");
+                });
+    
+                setTimeout(() => {
+                    saveButton.classList.remove("button-reset-animation");
+                }, 50); 
+            }, 1000);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("Failed to save quiz. Please try again.");
+            saveButton.textContent = "Save Quiz";
+            saveButton.disabled = false;
+            saveButton.style.backgroundColor = "#4fb4ed"; 
+        });
+    });
+    
     questionsContainer.addEventListener("click", function (event) {
         if (event.target.classList.contains("delete-question-btn")) {
             deleteQuestionHandler(event);
         } else if (event.target.id === "add-question-btn") {
             addQuestionHandler(event);
-        }
-    });
-    
-    document.querySelector(".save-btn").addEventListener("click", function () {
-        const quizData = getSelectedAnswers();
-        
-        if (quizData) {
-            console.log("Final Quiz Data:", quizData);
-            alert("Quiz saved successfully!");
         }
     });
 });
