@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <script src="script.js"></script>
     <!-- ----------------------------Navbar--------------------------- -->
     <header>
       <nav class="navbar">
@@ -35,12 +34,6 @@
         </div>
       </nav>
     </header>
-
-    <script>
-      function toggleMenu() {
-        document.querySelector(".nav-links").classList.toggle("active");
-      }
-    </script>
     <!------------------------------Navbar ends----------------------------->
 
     <!-- ----------------------------Main Content-----left section--------------------------- -->
@@ -71,11 +64,9 @@
           <button class="quiz-btn">Quiz</button>
         </div>
       </section>
-
       <!-- ----------------------------Main Content-----left section ends----------------------------->
 
       <!-- ----------------------------Main Content-----right section------------------------------>
-
       <section class="right-main">
         <div class="right-container">
           <div class="upper-content">
@@ -89,7 +80,6 @@
               </p>
             </div>
           </div>
-
             <div class="form-n-img">
               <div class="input-box">
                 <form action="#" class="inputs">
@@ -111,8 +101,6 @@
                   <label for="question-input">Question 1:</label>
                   <textarea id="question-input" name="question-input" placeholder="Enter question" required></textarea>
                 </div>
-        
-    
                 <div class="type-of-question">
                   <select id="type-of-question" name="type-of-question" required>
                       <option value="2">Checkbox</option>
@@ -146,10 +134,10 @@
                   <button id="add-question-btn">+ Question</button>
                   <button class="delete-question-btn">Delete</button>
             </div>
-    
                 <button class="save-btn">Save Quiz</button>
         </div>
       </section>
     </main>
+    <script src="script.js" defer></script>
   </body>
 </html>
