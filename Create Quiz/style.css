@@ -433,7 +433,6 @@ main{
     box-shadow: 2px 2px 5px rgb(44, 44, 44);
 }
 
-
 @media (max-width: 930px) {
     .input-box {
         width: 100%; 
@@ -461,7 +460,6 @@ main{
     }
 }
 
-
 .inputs .title, .inputs .duration {
     display: flex;
     flex-direction: column;
@@ -487,8 +485,6 @@ main{
     height: auto; /* Allows box to expand */
     box-shadow: 2px 2px 5px rgb(44, 44, 44);
 }
-
-
 
 .inner-question-box {
     display: flex;
@@ -539,8 +535,6 @@ main{
     font-size: 14px;
     width: 100%; 
 }
-
-
 .question-input label {
     white-space: nowrap; 
     margin: 10px;
@@ -693,9 +687,7 @@ select#type-of-question{
   flex-grow: 1;
   resize: none;
   overflow: hidden;
-
 }
-
 .options textarea {
   min-height: 30px;
   border: 1px solid #ccc;
@@ -713,6 +705,7 @@ select#type-of-question{
     width: 100%;
   }
 }
+
 #title,#question-input, #description, #correct-ans, #type-of-question, #duration, input#file-upload-button{
     border: none;
     background-color: #ffffff;
@@ -726,10 +719,12 @@ input#thumbnail{
     font-family: "Comfortaa", serif;
     width: 243px;
 }
+
 .question-input{
     width:100%;
     font-size: 17px;
 }
+
 .right-container{
     display: flex;
     flex-direction: column;
@@ -959,5 +954,4 @@ input#thumbnail{
         white-space: wrap;
         height:auto;
     }
-
 }
