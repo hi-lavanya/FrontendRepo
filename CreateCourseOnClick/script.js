@@ -17,11 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const description = document.querySelector("#description").value.trim();
         const thumbnail = document.querySelector("#thumbnail").files[0];
 
-        console.log("Collected Data:");
+        /* console.log("Collected Data:");
         console.log("Title:", title);
         console.log("Category:", category);
         console.log("Description:", description);
         console.log("Thumbnail:", thumbnail ? thumbnail.name : "No file selected");
+        */
 
         if (!title || !category || !description || !thumbnail) {
             alert("Please fill out all fields before submitting.");
@@ -36,19 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         console.log("Stored Object:", courseData);
-
-        const formData = new FormData();
-        for (let key in courseData) {
-            formData.append(key, courseData[key]);
+        const formData={
+            ...courseData,
         }
-        formData.append("thumbnail", thumbnail); 
 
         console.log("FormData Entries:");
-        for (let pair of formData.entries()) {
-            console.log(pair[0], ":", pair[1]);
-        }
-
-        localStorage.setItem("courseData", JSON.stringify(courseData));
+        console.log(formData);
+        localStorage.setItem("courseData", JSON.stringify(formData));
 
         alert("Course data stored successfully and appended to FormData!");
 
@@ -73,4 +68,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         */
     });
+    
 });
