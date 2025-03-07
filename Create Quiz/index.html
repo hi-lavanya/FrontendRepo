@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create Content</title>
+    <title>Create Quiz</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
@@ -59,7 +59,7 @@
             </div>
           </div>
         </div>
-        <p class="create-course">Create Course</p>
+        <p class="create-course">Create Quiz</p>
         <div class="buttons">
           <button class="quiz-btn">Quiz</button>
         </div>
@@ -95,47 +95,44 @@
                 </form>
               </div>
             </div>
-            <div class="outer-qestion-box">
-              <div class="inner-question-box">
-                <div class="question-input">
-                  <label for="question-input">Question 1:</label>
-                  <textarea id="question-input" name="question-input" placeholder="Enter question" required></textarea>
+            <div class="outer-box-with-save-btn">
+              <div class="outer-question-box">
+                <div class="inner-question-box">
+                  <div class="question-input">
+                    <label for="question-input">Question 1:</label>
+                    <textarea id="question-input" name="question-input" placeholder="Enter question" required></textarea>
+                  </div>
                 </div>
-                <div class="type-of-question">
-                  <select id="type-of-question" name="type-of-question" required>
-                      <option value="2">Checkbox</option>
-                  </select>
-                </div>
-              </div>
-                <div class="options">
-                  <form>
-                    <label for="option1">
-                      <input class="radio-options" type="checkbox" >
-                      <textarea id="option1" name="option-input" placeholder="Option A" required></textarea>    
-                    </label>
-                    <br>
-                    <label for="option2">                    
-                      <input class="radio-options" type="checkbox" >
-                      <textarea id="option2" name="option-input" placeholder="Option B" required></textarea>    
-                    </label>           
-                    <br>                    
-                    <label for="option3">                   
-                      <input class="radio-options" type="checkbox" >
-                      <textarea id="option3" name="option-input" placeholder="Option C" required></textarea>    
-                    </label>
-                    <br>
-                    <label for="option4">
-                      <input class="radio-options" type="checkbox" >
-                      <textarea id="option4" name="option-input" placeholder="Option D" required></textarea>    
-                    </label>
-                  </form>
-                </div>  
-                <br>
-                  <button id="add-question-btn">+ Question</button>
-                  <button class="delete-question-btn">Delete</button>
-            </div>
+                  <div class="options">
+                    <form>
+                      <label for="option1">
+                        <input class="radio-options" type="checkbox" >
+                        <input id="option1" name="option-input" placeholder="Option A" required></input>    
+                      </label>
+                      <br>
+                      <label for="option2">                    
+                        <input class="radio-options" type="checkbox" >
+                        <input id="option2" name="option-input" placeholder="Option B" required></input>    
+                      </label>           
+                      <br>                    
+                      <label for="option3">                   
+                        <input class="radio-options" type="checkbox" >
+                        <input id="option3" name="option-input" placeholder="Option C" required></input>    
+                      </label>
+                      <br>
+                      <label for="option4">
+                        <input class="radio-options" type="checkbox" >
+                        <input id="option4" name="option-input" placeholder="Option D" required></input>    
+                      </label>
+                    </form>
+                  </div>  
+                  <br>
+                  <button class="delete-question-btn">Delete</button> 
+              </div> 
+              <button id="add-question-btn">+ Question</button>
+            </div> 
                 <button class="save-btn">Save Quiz</button>
-        </div>
+            </div>
       </section>
     </main>
     <script src="script.js" defer></script>
