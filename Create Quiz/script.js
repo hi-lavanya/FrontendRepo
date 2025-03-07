@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // //fetching and posting data to backend 
 document.addEventListener("DOMContentLoaded", function () {
     const questionsContainer = document.querySelector(".right-container");
-    let questionCount = document.querySelectorAll(".outer-qestion-box").length;
+    let questionCount = document.querySelectorAll(".outer-box-with-save-btn").length;
     const saveButton = document.querySelector(".save-btn");
 
     function getCourseId() {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
         questionCount++;
 
-        const currentQuestionBox = event.target.closest(".outer-qestion-box");
+        const currentQuestionBox = event.target.closest(".outer-box-with-save-btn");
         if (!currentQuestionBox) {
             console.error("No question box found!");
             return;
@@ -53,14 +53,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function deleteQuestionHandler(event) {
-        const questionBoxes = document.querySelectorAll(".outer-qestion-box");
+        const questionBoxes = document.querySelectorAll(".outer-box-with-save-btn");
 
         if (questionBoxes.length <= 1) {
             alert("You must have at least one question.");
             return;
         }
 
-        const questionBox = event.target.closest(".outer-qestion-box");
+        const questionBox = event.target.closest(".outer-box-with-save-btn");
 
         if (questionBox) {
             questionBox.style.opacity = "0";
@@ -74,13 +74,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateQuestionNumbers() {
-        document.querySelectorAll(".outer-qestion-box").forEach((box, index) => {
+        document.querySelectorAll(".outer-box-with-save-btn").forEach((box, index) => {
             box.querySelector("label[for='question-input']").textContent = `Question ${index + 1}:`;
         });
     }
 
     function getSelectedAnswers() {
-        const questions = document.querySelectorAll(".outer-qestion-box");
+        const questions = document.querySelectorAll(".outer-box-with-save-btn");
         let quizData = [];
         let isValid = true;
 
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const courseId = getCourseId(); 
         const quizTitle = document.querySelector("#title").value.trim();
         const quizDuration = parseInt(document.querySelector("#duration").value, 10);
-        const questionBoxes = document.querySelectorAll(".outer-qestion-box");
+        const questionBoxes = document.querySelectorAll(".outer-box-with-save-btn");
     
         if (!quizTitle || isNaN(quizDuration) || quizDuration <= 0) {
             alert("Please enter a valid quiz title and duration.");
@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
             saveButton.style.backgroundColor = "#4fb4ed"; 
         });
     });
-    
+
     questionsContainer.addEventListener("click", function (event) {
         if (event.target.classList.contains("delete-question-btn")) {
             deleteQuestionHandler(event);
