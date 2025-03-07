@@ -1,15 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
     const loginButton = document.querySelector("#login-btn");
     const signUpButton = document.querySelector("#signup-btn");
-
+   
     if (loginButton) {
         loginButton.addEventListener("click", loginUser);
     }
 
     if (signUpButton) {
-        console.log("Adding event listener to signup button");
-        
         signUpButton.addEventListener("click", signUpUser);
+    }
+
+    if (forgotPasswordLink) {
+        forgotPasswordLink.addEventListener("click", openForgotPassword);
     }
 });
 
@@ -25,7 +27,7 @@ async function loginUser() {
     console.log("Sending login request to backend...");
 
     try {
-        const response = await fetch("http://localhost:3000/auth/users/login", {
+        const response = await fetch("https://localhost:5000/auth/admin/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password }),
@@ -37,7 +39,7 @@ async function loginUser() {
         if (response.ok) {
             alert("Login Successful");
             localStorage.setItem("token", data.token);
-            window.location.href = "dashboard.html"; // Redirect user
+            window.location.href = "/AdminPanel/AllPages/home.html"; // Redirect user
         } else {
             alert(data.message);
         }
@@ -52,7 +54,6 @@ async function signUpUser() {
     const emailInput = document.querySelector("input[name='email']");
     const passwordInput = document.querySelector("input[name='password']");
     const confirmPasswordInput = document.querySelector("input[name='cPassword']");
-
 
     if (!nameInput || !emailInput || !passwordInput || !confirmPasswordInput) {
         console.error("Signup input fields not found!");
@@ -69,7 +70,6 @@ async function signUpUser() {
         return;
     }
 
-    // Check if passwords match
     if (password !== confirmPassword) {
         alert("Passwords do not match.");
         return;
@@ -78,7 +78,7 @@ async function signUpUser() {
     console.log("Sending signup request...");
 
     try {
-        const response = await fetch("http://localhost:3000/auth/users/register", {
+        const response = await fetch("https://localhost:5000/auth/admin/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, email, password, confirmPassword }),
@@ -99,3 +99,40 @@ async function signUpUser() {
     }
 }
 
+// === Forgot Password Functions ===
+function openForgotPassword() {
+    document.getElementById("forgotPasswordModal").style.display = "block";
+}
+
+function closeForgotPassword() {
+    document.getElementById("forgotPasswordModal").style.display = "none";
+}
+
+async function sendResetLink() {
+    const email = document.getElementById("resetEmail").value;
+
+    if (!email) {
+        alert("Please enter your email address.");
+        return;
+    }
+
+    try {
+        const response = await fetch("https://localhost:5000/auth/forgotPass", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Password reset email sent. Check your inbox.");
+            closeForgotPassword();
+        } else {
+            alert(data.message);
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Failed to send password reset email.");
+    }
+}
