@@ -70,10 +70,10 @@
         </div>
         <p class="create-course">Create Course</p>
         <div class="buttons">
-          <button class="description-btn" id="description-btn">Description</button>
-          <button class="curriculum-btn">Curriculum</button>
-          <button class="quiz-btn">Publish</button>
-          <button class="publish-btn">Quiz</button>
+          <button class="description-btn" id="description-btn" href="/FrontendRepo/Instructor_pages/Step1pages/index.html">Description</button>
+          <button class="curriculum-btn" href="/FrontendRepo/Instructor_pages/Step2Pages/curriculum.html">Curriculum</button>
+          <button class="publish-btn">Publish</button>
+          <button class="quiz-btn" href="/FrontendRepo/Instructor_pages/Step2Pages/quiz.html">Quiz</button>
         </div>
       </section>
 
@@ -146,6 +146,23 @@
         </div>
       </section>
     </main>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('.description-btn').addEventListener('click', function () {
+        window.location.href = "/FrontendRepo/Instructor_pages/Step1pages/index.html";
+    });
+
+    document.querySelector('.curriculum-btn').addEventListener('click', function () {
+        window.location.href = "/FrontendRepo/Instructor_pages/Step2Pages/curriculum.html";
+    });
+
+    document.querySelector('.quiz-btn').addEventListener('click', function () {
+        window.location.href = "/FrontendRepo/Instructor_pages/Step2Pages/quiz.html";
+    });
+});
+
+    </script>
     <script src="script.js"></script>
   </body>
 </html>

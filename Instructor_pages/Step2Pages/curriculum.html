@@ -71,10 +71,10 @@
         </div>
         <p class="create-course">Create Course</p>
         <div class="buttons">
-          <button class="description-btn" id="description-btn">Description</button>
-          <button class="curriculum-btn">Curriculum</button>
-          <button class="quiz-btn">Publish</button>
-          <button class="publish-btn">Quiz</button>
+          <button class="description-btn" id="description-btn" href="/FrontendRepo/Instructor_pages/Step1pages/index.html">Description</button>
+          <button class="curriculum-btn" href="/FrontendRepo/Instructor_pages/Step2Pages/curriculum.html">Curriculum</button>
+          <button class="publish-btn">Publish</button>
+          <button class="quiz-btn" href="/FrontendRepo/Instructor_pages/Step2Pages/quiz.html">Quiz</button>
         </div>
       </section>
 
@@ -141,7 +141,7 @@
               <!-- Add Module Button -->
               <div class="save-n-next">
                 <button class="add-module">+ Module</button>
-                <button class="save-btn">Save & Next</button>
+                <button class="save-btn">Save</button>
               </div>
             </div>
 
@@ -162,6 +162,33 @@
 
      <script src="script.js"></script>
 
+     <!-- Confirmation Popup -->
+<div id="confirmation-modal" class="modal">
+  <div class="modal-content">
+    <p id="modal-message">Are you sure you want to proceed?</p>
+    <div class="modal-buttons">
+      <button id="yes-btn">Yes</button>
+      <button id="no-btn">No</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('.description-btn').addEventListener('click', function () {
+        window.location.href = "/FrontendRepo/Instructor_pages/Step1pages/index.html";
+    });
+
+    document.querySelector('.curriculum-btn').addEventListener('click', function () {
+        window.location.href = "/FrontendRepo/Instructor_pages/Step2Pages/curriculum.html";
+    });
+
+    document.querySelector('.quiz-btn').addEventListener('click', function () {
+        window.location.href = "/FrontendRepo/Instructor_pages/Step2Pages/quiz.html";
+    });
+});
+
+</script>
 
   </body>
 </html>

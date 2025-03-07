@@ -254,8 +254,8 @@ li {
     color: red;
 }
 
-.publish-btn {
-    margin-top: 90px;
+.quiz-btn {
+    margin-top: 70px;
 }
 
 #description-btn {
@@ -487,11 +487,13 @@ input#thumbnail{
 img{
     height: 600px;
     width: auto;
+    
 }
+
 
 .save-n-next{
     display: flex;
-    margin-top: 125px;
+    margin-top: 80px;
     float: right;
 }
 
